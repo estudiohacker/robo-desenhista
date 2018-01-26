@@ -7,6 +7,7 @@
 #include "config.h"
 #include "helper_functions.h"
 #include "comandos_basicos.h"
+#include "arte.h"
 
 Servo penServo;
 
@@ -32,13 +33,11 @@ void setup() {
 
 void loop() {
   Serial.println("loop");
-  pendown();
-  moveForward(100);
-  turnRight(90);
-  turnLeft(90);
-  moveBackward(100);
-  penup();
-  
+
+  teste();
+
+  arte();
+
   done();
   delay(5000);
 }
