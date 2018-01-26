@@ -5,14 +5,13 @@
 
 #include <Servo.h>
 #include "config.h"
-#include "helper_functions.h"
-#include "comandos_basicos.h"
-#include "arte.h"
+#include "desenho.h"
 
 Servo penServo;
 
 void setup() {
   Serial.begin(115200);
+  Serial.println("setup");
 
   for (int pin = 0; pin < 4; pin++) {
     pinMode(L_stepper_pins[pin], OUTPUT);
@@ -22,13 +21,6 @@ void setup() {
   }
   
   penServo.attach(servoPin);
-
-  Serial.println("setup");
-  penup();
-  pendown();
-  penup();
-  pendown();
-  penup();
 }
 
 void loop() {
@@ -36,9 +28,8 @@ void loop() {
 
   teste();
 
-  arte();
+//  desenho();
 
-  done();
   delay(5000);
 }
 

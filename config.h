@@ -1,5 +1,7 @@
 #pragma once
 
+#include <Arduino.h>
+
 const uint8_t servoPin = 2;
 const uint8_t L_stepper_pins[] = {8, 9, 10, 11};
 const uint8_t R_stepper_pins[] =  {4, 5, 6, 7};

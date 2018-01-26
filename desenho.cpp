@@ -1,8 +1,13 @@
-#pragma once
-
 #include <math.h>
+#include "desenho.h"
+#include "comandos_basicos.h"
+#include "helper_functions.h"
 
 void teste() {
+  penup();
+  pendown();
+  penup();
+
   pendown();
   moveForward(100);
   turnRight(90);
@@ -19,10 +24,10 @@ void quadrado(int tamanho) {
   moveForward(tamanho);
   turnLeft(90);
   moveForward(tamanho);
-  turnLeft(90);  
+  turnLeft(90);
 }
 
-void arte() {
+void desenho() {
   pendown();
 
   int i = 0;
@@ -40,7 +45,7 @@ void arte() {
 //    turnRight(random(0, 180));
 //    i++;
 //  };
-  
-  penup();  
+
+  penup();
 }
 
