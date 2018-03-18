@@ -1,9 +1,9 @@
 #include "config.h"
 
-#include <AccelStepper.h>
-#include <MultiStepper.h>
+#include "src/AccelStepper/AccelStepper.h"
+#include "src/AccelStepper/MultiStepper.h"
 #ifdef RF_CONTROL
-#include "SoftRcPulseOut.h"
+#include "src/SoftRcPulseOut/SoftRcPulseOut.h"
 SoftRcPulseOut penServo;
 #else
 #include <Servo.h>
