@@ -4,16 +4,15 @@
 #include "helper_functions.h"
 
 void teste() {
-  penup();
   pendown();
-  penup();
 
-  pendown();
   moveForward(100);
   turnRight(90);
   turnLeft(90);
   moveBackward(100);
+
   penup();
+  done();
 }
 
 void quadrado(int tamanho) {

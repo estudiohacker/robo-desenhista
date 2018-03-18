@@ -1,110 +1,81 @@
+#include <AccelStepper.h>
+#include <MultiStepper.h>
 #include <Servo.h>
 #include "config.h"
 
-extern Servo penServo;
+Servo penServo;
+
+AccelStepper rightMotor(AccelStepper::HALF4WIRE, R_stepper_pins[0], R_stepper_pins[2], R_stepper_pins[1], R_stepper_pins[3]);
+AccelStepper leftMotor(AccelStepper::HALF4WIRE, L_stepper_pins[0], L_stepper_pins[2], L_stepper_pins[1], L_stepper_pins[3]);
+MultiStepper motors;
+
+void setupEngines() {
+  penServo.attach(servoPin);
+  
+  leftMotor.setMaxSpeed(max_speed);
+  rightMotor.setMaxSpeed(max_speed);
+  motors.addStepper(leftMotor);
+  motors.addStepper(rightMotor);
+}
 
 int step(float distance) {
-  int steps = distance * steps_rev / (wheel_dia * PI); //24.61
-  /*
-    Serial.print(distance);
-    Serial.print(" ");
-    Serial.print(steps_rev);
-    Serial.print(" ");
-    Serial.print(wheel_dia);
-    Serial.print(" ");
-    Serial.println(steps);
-    delay(1000);*/
-  return steps;
+  return int(distance * steps_rev / (wheel_dia * PI));
 }
 
+float distance(float degrees) {
+  return wheel_base * PI * (degrees / 360.0);
+}
+
+void move(long step_left, long step_right) {
+  long steps[2];
+  steps[0] = step_left;
+  steps[1] = step_right;
+  motors.moveTo(steps);
+  motors.runSpeedToPosition();
+  leftMotor.setCurrentPosition(0);
+  rightMotor.setCurrentPosition(0);  
+}
 
 void forward(float distance) {
-  int steps = step(distance);
-  //Serial.println(steps);
-  for (int step = 0; step < steps; step++) {
-    for (int mask = 0; mask < 4; mask++) {
-      for (int pin = 0; pin < 4; pin++) {
-        digitalWrite(L_stepper_pins[pin], rev_mask[mask][pin]);
-        digitalWrite(R_stepper_pins[pin], fwd_mask[mask][pin]);
-      }
-      delay(delay_time);
-    }
-  }
+  Serial.print("↑ ");  Serial.print(distance); Serial.println("mm");
+  int s = step(distance);
+  move(-s, s);
 }
-
 
 void backward(float distance) {
-  int steps = step(distance);
-  for (int step = 0; step < steps; step++) {
-    for (int mask = 0; mask < 4; mask++) {
-      for (int pin = 0; pin < 4; pin++) {
-        digitalWrite(L_stepper_pins[pin], fwd_mask[mask][pin]);
-        digitalWrite(R_stepper_pins[pin], rev_mask[mask][pin]);
-      }
-      delay(delay_time);
-    }
-  }
+  Serial.print("↓ ");  Serial.print(distance); Serial.println("mm");
+  int s = step(distance);
+  move(s, -s);
 }
-
 
 void right(float degrees) {
-  float rotation = degrees / 360.0;
-  float distance = wheel_base * PI * rotation;
-  int steps = step(distance);
-  for (int step = 0; step < steps; step++) {
-    for (int mask = 0; mask < 4; mask++) {
-      for (int pin = 0; pin < 4; pin++) {
-        digitalWrite(R_stepper_pins[pin], fwd_mask[mask][pin]);
-        digitalWrite(L_stepper_pins[pin], fwd_mask[mask][pin]);
-      }
-      delay(delay_time);
-    }
-  }
+  Serial.print("↷ "); Serial.print(degrees); Serial.println("°");
+  int s = step(distance(degrees));
+  move(s, s);
 }
-
 
 void left(float degrees) {
-  float rotation = degrees / 360.0;
-  float distance = wheel_base * PI * rotation;
-  int steps = step(distance);
-  for (int step = 0; step < steps; step++) {
-    for (int mask = 0; mask < 4; mask++) {
-      for (int pin = 0; pin < 4; pin++) {
-        digitalWrite(R_stepper_pins[pin], rev_mask[mask][pin]);
-        digitalWrite(L_stepper_pins[pin], rev_mask[mask][pin]);
-      }
-      delay(delay_time);
-    }
-  }
+  Serial.print("↶ "); Serial.print(degrees); Serial.println("°");
+  int s = step(distance(degrees));
+  move(-s, -s);
 }
-
 
 void done() { // unlock stepper to save battery
-  for (int mask = 0; mask < 4; mask++) {
-    for (int pin = 0; pin < 4; pin++) {
-      digitalWrite(R_stepper_pins[pin], LOW);
-      digitalWrite(L_stepper_pins[pin], LOW);
-    }
-    delay(delay_time);
-  }
+  rightMotor.disableOutputs();
+  leftMotor.disableOutputs();
 }
 
-
 void penup() {
-  delay(100);
-  Serial.println("PEN_UP()");
+  Serial.println("⇞");
   penServo.write(PEN_UP);
   delay(100);
 }
 
-
 void pendown() {
-  delay(100);
-  Serial.println("PEN_DOWN()");
+  Serial.println("⇟");
   penServo.write(PEN_DOWN);
   delay(100);
 }
-
 
 void circle(float radius, float extent, int sides) {
   // based on Python's Turtle circle implementation
@@ -137,12 +108,10 @@ void circle(float radius, float extent, int sides) {
   right(w2);
 }
 
-
 void circle(float radius, float extent) {
   int sides = 1 + int(4 + abs(radius) / 12.0);
   circle(radius, extent, sides);
 }
-
 
 void circle(float radius) {
   circle(radius, 360);
