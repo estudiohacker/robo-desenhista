@@ -10,9 +10,9 @@ void teste() {
   turnRight(90);
   turnLeft(90);
   moveBackward(100);
+  done();
 
   penup();
-  done();
 }
 
 void quadrado(int tamanho) {

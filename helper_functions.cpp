@@ -1,9 +1,15 @@
-#include <AccelStepper.h>
-#include <MultiStepper.h>
-#include <Servo.h>
 #include "config.h"
 
+#include <AccelStepper.h>
+#include <MultiStepper.h>
+#ifdef RF_CONTROL
+#include "SoftRcPulseOut.h"
+SoftRcPulseOut penServo;
+#else
+#include <Servo.h>
 Servo penServo;
+#endif
+
 
 AccelStepper rightMotor(AccelStepper::HALF4WIRE, R_stepper_pins[0], R_stepper_pins[2], R_stepper_pins[1], R_stepper_pins[3]);
 AccelStepper leftMotor(AccelStepper::HALF4WIRE, L_stepper_pins[0], L_stepper_pins[2], L_stepper_pins[1], L_stepper_pins[3]);
@@ -67,13 +73,31 @@ void done() { // unlock stepper to save battery
 
 void penup() {
   Serial.println("⇞");
+
+#ifdef RF_CONTROL
+  for (int pos = PEN_DOWN; pos > PEN_UP; pos -= 1) {
+    penServo.write(pos);
+    delay(2);
+    SoftRcPulseOut::refresh();
+  }   
+#else    
   penServo.write(PEN_UP);
+#endif
   delay(100);
 }
 
 void pendown() {
   Serial.println("⇟");
+
+#ifdef RF_CONTROL
+  for (int pos = PEN_UP; pos < PEN_DOWN; pos += 1) {
+    penServo.write(pos);
+    delay(2);
+    SoftRcPulseOut::refresh();
+  }
+#else    
   penServo.write(PEN_DOWN);
+#endif
   delay(100);
 }
 
