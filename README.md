@@ -20,7 +20,7 @@ Projeto de um robô desenhista por [Monica Rizzolli](https://github.com/MonicaRi
 
    ![2-shield_smal](assets/02-shield_small.jpg)
 
-* 1 Cabo USB compatível com Arduino Nano
+* 1 Cabo USB compatível com Arduino Nano (ponta 'mini', não 'micro')
 
 * 12 Jumpers fêmea-fêmea
 
