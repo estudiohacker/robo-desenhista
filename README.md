@@ -4,6 +4,8 @@ Projeto de um robô desenhista por [Monica Rizzolli](https://github.com/MonicaRi
 
 [Vídeo demonstração](https://youtu.be/GalOWkOCb_o)
 
+Ilustrações: Monica Rizzolli
+
 ## Lista de materiais
 
 * 2 motores de passo 28BYJ-48 5VDC
