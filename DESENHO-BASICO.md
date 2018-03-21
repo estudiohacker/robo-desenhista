@@ -17,7 +17,8 @@ for (var count1 = 0; count1 < 3; count1++){ // nesse loop definimos quantas veze
     moveForward(100); // definir o tamanho do lado do quadrado
     turnRight(90);
   }
-  turnRight(120); // aqui definimos quantos graus o quadrado deve rotacionar. Para descobrir o ângulo, dividimos 360 pela quantidade de vezes que o quadrado é desenhado - nesse caso 360/3=120
+  turnRight(120); // aqui definimos quantos graus o quadrado deve rotacionar. 
+  //Para descobrir o ângulo, dividimos 360 pela quantidade de vezes que o quadrado é desenhado - nesse caso 360/3=120
 }
 ``` 
 
