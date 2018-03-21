@@ -24,7 +24,7 @@ Ilustrações: Monica Rizzolli
 
    ![2-shield_smal](assets/02-shield_small.jpg)
 
-* 1 Cabo USB compatível com Arduino Nano (ponta 'mini', não 'micro')
+* 1 Cabo USB compatível com o Arduino Nano
 
 * 12 Jumpers fêmea-fêmea
 
