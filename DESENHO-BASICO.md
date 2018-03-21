@@ -4,8 +4,8 @@
 
 ```C
 for (var count = 0; count < 4; count++){
-moveForward(100); // tamanho do lado do quadrado
-turnRight(90);
+  moveForward(100); // tamanho do lado do quadrado
+  turnRight(90);
 }
 ``` 
 
@@ -25,4 +25,16 @@ for (var count1 = 0; count1 < 3; count1++){
   turnRight(120);
 }
 ``` 
+
+![3](https://github.com/estudiohacker/robo-desenhista/blob/master/assets/desenho03.png?raw=true)
+
+```C
+for (var count = 0; count < 2; count++){
+  moveForward(100); // tamanho do lado do losango
+  turnRight(60);
+  moveForward(100); // tamanho do lado do losango
+  turnRight(120);
+}
+```
+
 
