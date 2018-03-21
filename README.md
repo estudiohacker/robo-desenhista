@@ -9,9 +9,11 @@ Ilustrações: Monica Rizzolli
 ## Lista de materiais
 
 * 2 motores de passo 28BYJ-48 5VDC
+
    ![3-motor-de-passo_small](assets/03-motor-de-passo_small.jpg)
 
 * 1 micro servo 9g SG90
+
    ![7-serv](assets/07-servo_small.jpg)
 
 * 1 Arduino Nano
