@@ -61,6 +61,7 @@ for (var count1 = 0; count1 < 16; count1++){
   // nesse caso 360/16 = 22.5
   turnRight(22.5);
 }
+``` 
 
 ![6](https://github.com/estudiohacker/robo-desenhista/blob/master/assets/desenho06.png?raw=true)
 
