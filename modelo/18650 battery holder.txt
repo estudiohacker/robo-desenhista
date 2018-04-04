@@ -1,0 +1,6 @@
+Modelo disponível em:
+https://www.tinkercad.com/things/6IyCXUB1krB
+
+TODO:
+- deixar um pouco mais frouxo o encaixa da bateria (1.0mm?)
+- algo para auxiliar a condução do fio da bateria
