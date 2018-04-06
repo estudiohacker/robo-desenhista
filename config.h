@@ -2,7 +2,8 @@
 
 #include <Arduino.h>
 
-//#define RF_CONTROL
+// Os servos e os Wii Nunchuk piratas só funcionam juntos com essa definição habilitada.
+#define RF_CONTROL
 
 const uint8_t servoPin = 2;
 const uint8_t L_stepper_pins[] = {8, 9, 10, 11};

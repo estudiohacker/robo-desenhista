@@ -75,7 +75,7 @@ void penup() {
   Serial.println("⇞");
 
 #ifdef RF_CONTROL
-  for (int pos = PEN_DOWN; pos > PEN_UP; pos -= 1) {
+  for (int pos = PEN_DOWN; pos > PEN_UP - 15; pos -= 1) {
     penServo.write(pos);
     delay(2);
     SoftRcPulseOut::refresh();
@@ -90,7 +90,7 @@ void pendown() {
   Serial.println("⇟");
 
 #ifdef RF_CONTROL
-  for (int pos = PEN_UP; pos < PEN_DOWN; pos += 1) {
+  for (int pos = PEN_UP; pos < PEN_DOWN + 15; pos += 1) {
     penServo.write(pos);
     delay(2);
     SoftRcPulseOut::refresh();

@@ -44,6 +44,7 @@ void desenho() {
 //    turnRight(random(0, 180));
 //    i++;
 //  };
+  done();
 
   penup();
 }
