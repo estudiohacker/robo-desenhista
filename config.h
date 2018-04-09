@@ -14,7 +14,7 @@ const uint8_t R_stepper_pins[] = {4, 5, 6, 7};
 const int PEN_DOWN = 105; // ângulo do servo quando a caneta está abaixada.
 const int PEN_UP = 75;    // ângulo do servo quando a caneta está levantada.
 
-const float wheel_dia =  60.4;   // diâmetro da roda em milímetros.
+const float wheel_dia =  65.4;   // diâmetro da roda em milímetros.
 const float wheel_base = 115.25; // separação entre as duas rodas em milímetros.
 const int steps_rev = 4096;      // número de passos do step motor 28BYJ-48.
 

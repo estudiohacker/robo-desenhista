@@ -6,6 +6,7 @@ $fn = 64;
 penDiameter = 10; // 12.5mm works with Sharpie Fine
                   // 11.75 for Visa-vis
                   // 10 mm for Crayola Washables
+                  // 8.3m para caneta hidrográfica lavável Happy-time (slice = 0).
 penRadius = penDiameter / 2;
 barrelHieght = 10;
 barrelWallThickness = 3;
@@ -30,7 +31,7 @@ module penHolder(){
 
         // expansion slice
         translate([ -slice / 2, 0, 0])
-        cube([  slice, hatDiameter, barrelHieght]); 
+        cube([  slice, hatDiameter, barrelHieght]);
 	}
 
 	// pen barrel

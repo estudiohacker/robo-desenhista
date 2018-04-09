@@ -19,11 +19,11 @@ use <write/Write.scad>
 
 
 /* [Global] */
-features = "spokes"; // [spokes, text, plain, hub-only]
+features = "spokes"; // [spokes, plain, hub-only]
 
 /* [Wheel] */
 // Diameter of wheel in mm.
-wheel_diameter = 60;
+wheel_diameter = 65;
 
 // Increase shaft cutout size in mm if your printer is not calibrated.
 fudge_factor = 0;
@@ -31,19 +31,19 @@ fudge_factor = 0;
 /* [Text] */
 
 // You will have to flip it around to see it. 
-text = "ChickTech  Rules!";
+text = "Estudio Hacker";
 
 // Font selection
-font = "orbitron.dxf"; // [orbitron.dxf, BlackRose.dxf, knewave.dxf, braille.dxf, Letters.dxf]
+font = "orbitron.dxf";
 
 // 8mm goes all the way through, but may cause trouble with letters like "B".
-letter_depth = 1; // [0:8]
+letter_depth = 2; // [0:8]
 
 // Letter spacing
-letter_spacing = 1.2; 
+letter_spacing = 1.3; 
 
 // Letter height in mm.
-letter_height = 8;
+letter_height = 6.8;
 
 
 difference(){
@@ -80,22 +80,20 @@ difference(){
 		square([2,2],center=true);
 
         // add text to face
-        if (features == "text"){
-            if(letter_depth > 0){
-                rotate(180, [1, 0, 0]){
-                    writecircle(text, [0, 0, 0], 
-                                wheel_diameter / 2 - letter_height, 
-                                font=font, space=letter_spacing, 
-                                t=letter_depth, h=letter_height);
-                }
+        if(letter_depth > 0){
+            rotate(180, [1, 0, 0]){
+                writecircle(text, [0, 0, 0], 
+                            wheel_diameter / 3.1 - letter_height, 
+                            font=font, space=letter_spacing, 
+                            t=letter_depth, h=letter_height);
             }
         }
         // add spokes (circular cut-outs)        
         if (features == "spokes"){
-            for(i = [0:5]){
-                rotate(i * 360 / 6, [0, 0, 1])
-                translate([wheel_diameter / 3.2, 0, -1])
-                cylinder(r=wheel_diameter / 8, h=8, $fn=40);
+            for(i = [0:11]){
+                rotate(i * 360 / 12, [0, 0, 1])
+                translate([wheel_diameter / 2.75, 0, -1])
+                cylinder(r=wheel_diameter / 16, h=8, $fn=40);
             }
         }
 	}
