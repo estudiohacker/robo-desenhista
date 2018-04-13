@@ -16,10 +16,3 @@ void penup();
 
 void pendown();
 
-void circle(float radius);
-
-void circle(float radius, float extent);
-
-void circle(float radius, float extent, int sides);
-
-

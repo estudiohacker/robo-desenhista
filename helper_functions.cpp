@@ -101,43 +101,4 @@ void pendown() {
   delay(100);
 }
 
-void circle(float radius, float extent, int sides) {
-  // based on Python's Turtle circle implementation
-  float frac = abs(extent) / 360;
-  float w = 1.0 * extent / sides;
-  float w2 = 0.5 * w;
-  float l = 2.0 * radius * sin(w2 * PI / 180);
-  if (radius < 0) {
-    l = -l;
-    w = -w;
-    w2 = -w2;
-  }
-  left(w2);
-  Serial.print("circle: ");
-  Serial.print("frac=");
-  Serial.print(frac);
-  Serial.print(" sides=");
-  Serial.print(sides);
-  Serial.print(" l=");
-  Serial.print(l);
-  Serial.print(" w=");
-  Serial.print(w);
-  Serial.print(" w2=");
-  Serial.println(w2);
-
-  for (int i = 0; i < sides; i++) {
-    forward(l);
-    left(w);
-  }
-  right(w2);
-}
-
-void circle(float radius, float extent) {
-  int sides = 1 + int(4 + abs(radius) / 12.0);
-  circle(radius, extent, sides);
-}
-
-void circle(float radius) {
-  circle(radius, 360);
-}
 

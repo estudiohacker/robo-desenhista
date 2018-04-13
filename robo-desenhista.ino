@@ -88,9 +88,28 @@ void loop() {
     digitalWrite(LED_BUILTIN, LOW);
 
     delay(5000);
-  
-//    teste();
-    desenho();
+
+    randomSeed(analogRead(0));
+    int sorteio = random(1, 4);
+    Serial.print("Desenho sorteado: ");
+
+    switch (sorteio) {
+      case 1:
+        Serial.println("10 quadrados separados por 36 graus");
+        desenho_10quadrados36graus();        
+        break;
+      case 2:
+        Serial.println("7 círculos concêntricos");
+        desenho_7circulosconcentricos();        
+        break;
+      case 3:
+        Serial.println("bandeira do brasil");
+        desenho_bandeirabrasil();
+        break;
+      default:
+        Serial.println("teste");
+        teste();
+    }
 
     while (1)    
       delay(1000);

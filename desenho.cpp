@@ -26,7 +26,15 @@ void quadrado(int tamanho) {
   turnLeft(90);
 }
 
-void desenho() {
+void circulo(int diametro) {
+  int num_lados = 20;
+  for (int count = 0; count < num_lados; count++){
+    moveForward(diametro * M_PI /num_lados);
+    turnRight(360 / num_lados);
+  }
+}
+
+void desenho_10quadrados36graus() {
   pendown();
 
   int i = 0;
@@ -35,15 +43,61 @@ void desenho() {
     turnLeft(36);
     i++;
   }
-//
-//  int i = 0;
-//  while (i < 10) {
-//    moveForward(random(0, 50));
-//    turnLeft(random(0, 180));
-//    moveBackward(random(0, 50));
-//    turnRight(random(0, 180));
-//    i++;
-//  };
+  done();
+
+  penup();
+}
+
+void desenho_7circulosconcentricos() {
+  pendown();
+
+  int i = 0;
+  while (i < 6) {
+    circulo(50);
+    jumpForward(50);
+    turnRight(360/6);
+    i++;
+  }
+  circulo(50);  
+  done();
+
+  penup();
+}
+
+void desenho_bandeirabrasil() {
+  pendown();
+
+  // Retângulo
+  moveForward(100);
+  turnRight(90);
+  moveForward(70);
+  turnRight(90);
+  moveForward(100);
+  turnRight(90);
+  moveForward(70);
+  turnRight(90);
+  
+  // Preparação para o losângo
+  jumpForward(50);
+  turnRight(90);
+  jumpForward(15);
+  turnLeft(60);
+
+  // Losângo
+  moveForward(45);
+  turnRight(120);
+  moveForward(45);
+  turnRight(60);
+  moveForward(45);
+  turnRight(120);
+  moveForward(45);
+  turnRight(120);
+
+  // Preparação círculo
+  jumpForward(10);
+  turnLeft(90);
+  circulo(30);
+
   done();
 
   penup();
