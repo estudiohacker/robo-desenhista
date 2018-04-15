@@ -29,18 +29,18 @@ void quadrado(int tamanho) {
 void circulo(int diametro) {
   int num_lados = 20;
   for (int count = 0; count < num_lados; count++){
-    moveForward(diametro * M_PI /num_lados);
+    moveForward(diametro * M_PI / num_lados);
     turnRight(360 / num_lados);
   }
 }
 
-void desenho_10quadrados36graus() {
+void desenho_quadradosconcentricos() {
   pendown();
 
   int i = 0;
-  while (i < 10) {
+  while (i < 5) {
     quadrado(50);
-    turnLeft(36);
+    turnLeft(72);
     i++;
   }
   done();
@@ -48,7 +48,7 @@ void desenho_10quadrados36graus() {
   penup();
 }
 
-void desenho_7circulosconcentricos() {
+void desenho_circulosconcentricos() {
   pendown();
 
   int i = 0;
@@ -64,42 +64,71 @@ void desenho_7circulosconcentricos() {
   penup();
 }
 
-void desenho_bandeirabrasil() {
+void desenho_espiralquadrados() {
   pendown();
 
-  // Retângulo
   moveForward(100);
   turnRight(90);
-  moveForward(70);
-  turnRight(90);
-  moveForward(100);
-  turnRight(90);
-  moveForward(70);
-  turnRight(90);
-  
-  // Preparação para o losângo
-  jumpForward(50);
-  turnRight(90);
-  jumpForward(15);
-  turnLeft(60);
+  int tamanho = 100;
+  while (tamanho > 0) {
+    moveForward(tamanho);
+    turnRight(90);
 
-  // Losângo
-  moveForward(45);
-  turnRight(120);
-  moveForward(45);
-  turnRight(60);
-  moveForward(45);
-  turnRight(120);
-  moveForward(45);
-  turnRight(120);
+    moveForward(tamanho);
+    turnRight(90);
+    tamanho = tamanho - 10;
+  }
+  done();
 
-  // Preparação círculo
-  jumpForward(10);
-  turnLeft(90);
-  circulo(30);
+  penup();
+}
+
+void desenho_espiraltriangulos() {
+  pendown();
+
+  int tamanho = 100;
+  moveForward(tamanho);
+  turnRight(120);
+  while (tamanho > 0) {
+    moveForward(tamanho);
+    turnRight(120);
+    
+    tamanho = tamanho - 10;
+  }
+  done();
+
+  penup();
+}
+
+void desenho_espiralcirculos() {
+  pendown();
+
+  int diametro = 100;
+  int num_lados = 20;
+  while (diametro > 10) {
+    moveForward(diametro * M_PI / num_lados);
+    turnRight(360 / num_lados);
+    diametro--;
+  }
 
   done();
 
   penup();
 }
+
+void desenho_estrela() {
+  pendown();
+
+  int i = 0;
+  while (i < 5) {
+    moveForward(100);
+    turnRight(144);
+    i++;
+  }
+
+  done();
+
+  penup();
+}
+
 

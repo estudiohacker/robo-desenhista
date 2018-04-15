@@ -2,11 +2,17 @@
 
 void teste();
 
-void desenho_10quadrados36graus();
+void desenho_quadradosconcentricos();
 
-void desenho_7circulosconcentricos();
+void desenho_circulosconcentricos();
 
-void desenho_bandeirabrasil();
+void desenho_espiralquadrados();
+
+void desenho_espiraltriangulos();
+
+void desenho_espiralcirculos();
+
+void desenho_estrela();
 
 void quadrado(int tamanho);
 

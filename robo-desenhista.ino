@@ -90,21 +90,33 @@ void loop() {
     delay(5000);
 
     randomSeed(analogRead(0));
-    int sorteio = random(1, 4);
+    int sorteio = random(1, 7);
     Serial.print("Desenho sorteado: ");
 
     switch (sorteio) {
       case 1:
-        Serial.println("10 quadrados separados por 36 graus");
-        desenho_10quadrados36graus();        
+        Serial.println("quadrados concêntricos");
+        desenho_quadradosconcentricos();        
         break;
       case 2:
-        Serial.println("7 círculos concêntricos");
-        desenho_7circulosconcentricos();        
+        Serial.println("círculos concêntricos");
+        desenho_circulosconcentricos();        
         break;
       case 3:
-        Serial.println("bandeira do brasil");
-        desenho_bandeirabrasil();
+        Serial.println("espiral quadrados");
+        desenho_espiralquadrados();
+        break;
+      case 4:
+        Serial.println("espiral círculos");
+        desenho_espiralcirculos();
+        break;
+      case 5:
+        Serial.println("espiral triângulos");
+        desenho_espiraltriangulos();
+        break;
+      case 6:
+        Serial.println("estrela");
+        desenho_estrela();
         break;
       default:
         Serial.println("teste");
