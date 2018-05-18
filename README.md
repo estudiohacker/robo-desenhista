@@ -1,4 +1,4 @@
-Projeto de um robô desenhista por [Monica Rizzolli](https://github.com/MonicaRizzolli/) e [João Adriano Freitas](https://github.com/jaafreitas/).
+Projeto de um robô desenhista por [Monica Rizzolli](https://github.com/MonicaRizzolli/) e [João Adriano Freitas](https://github.com/jaafreitas/). Inspirado no [Open Source Turtle Robot ](https://github.com/aspro648/OSTR) por MakersBox
 
 [Foto da primeira versão a frente e segunda versão ao fundo](https://scontent-gru2-2.xx.fbcdn.net/v/t31.0-8/20989263_1151005741696353_320877582461856894_o.jpg?oh=a3e206db3cbcc99220484db0424a8afe&oe=5AEBBE06)
 
@@ -29,6 +29,13 @@ Ilustrações: Monica Rizzolli
 * 12 Jumpers fêmea-fêmea
 
    ![0-jumpers_femea_femea_smal](assets/00-jumpers_femea_femea_small.jpg)
+   
+* 14 porcas fêmeas hexagonal M3
+* 18 parafusos Allen M3x8
+* 14 parafusos cabeça redonda M2.5x8
+* 1 bola de metal 5/8"
+* 2 anéis de borracha (O-ring) 1 7/8" x 1/8"
+
 
 ## Montagem eletrônica
 * Micro servo na porta digital 2: fio laranja no S, vermlho no V e marrom no G
@@ -41,3 +48,7 @@ Ilustrações: Monica Rizzolli
 
 
 ![9-tud](assets/09-tudo.jpg)
+
+## Licença
+[Attribution-ShareAlike 3.0 United States (CC BY-SA 3.0 US)](https://creativecommons.org/licenses/by-sa/3.0/us/)
+
