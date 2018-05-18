@@ -1,6 +1,4 @@
-Projeto de um robô desenhista por [Monica Rizzolli](https://github.com/MonicaRizzolli/) e [João Adriano Freitas](https://github.com/jaafreitas/). Inspirado no [Open Source Turtle Robot ](https://github.com/aspro648/OSTR) por MakersBox
-
-[Foto da primeira versão a frente e segunda versão ao fundo](https://scontent-gru2-2.xx.fbcdn.net/v/t31.0-8/20989263_1151005741696353_320877582461856894_o.jpg?oh=a3e206db3cbcc99220484db0424a8afe&oe=5AEBBE06)
+Projeto de um robô desenhista por [Monica Rizzolli](https://github.com/MonicaRizzolli/) e [João Adriano Freitas](https://github.com/jaafreitas/). Inspirado no [Open Source Turtle Robot ](https://github.com/aspro648/OSTR) por MakersBox.
 
 [Vídeo demonstração](https://youtu.be/GalOWkOCb_o)
 
