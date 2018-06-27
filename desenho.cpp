@@ -1,7 +1,6 @@
 #include <math.h>
-#include "desenho.h"
-#include "comandos_basicos.h"
-#include "helper_functions.h"
+#include "interface.h"
+#include "hardware.h"
 
 void teste() {
   pendown();

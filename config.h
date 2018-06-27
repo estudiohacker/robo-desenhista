@@ -14,8 +14,11 @@ const uint8_t R_stepper_pins[] = {4, 5, 6, 7};
 const int PEN_DOWN = 130; // ângulo do servo quando a caneta está abaixada.
 const int PEN_UP = 90;    // ângulo do servo quando a caneta está levantada.
 
-const float wheel_dia =  65.4;   // diâmetro da roda em milímetros.
-const float wheel_base = 115.25; // separação entre as duas rodas em milímetros.
+const float wheel_dia =  66;     // diâmetro da roda em milímetros.
+
+// separação entre as duas rodas em milímetros.
+// número maior, o ângulo fica mais fechado.
+const float wheel_base = 115; 
 const int steps_rev = 4096;      // número de passos do step motor 28BYJ-48.
 
 // Velocidade máxima téorica de 16.25 rpm,

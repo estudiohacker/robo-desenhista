@@ -1,7 +1,4 @@
-#include "comandos_basicos.h"
-#include "helper_functions.h"
-
-typedef int var; // handles JavaScript var type
+#include "hardware.h"
 
 void moveForward(float distance) {
   forward(distance);

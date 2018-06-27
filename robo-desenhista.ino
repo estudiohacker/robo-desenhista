@@ -6,12 +6,11 @@
 #include <Wire.h>
 #include "config.h"
 #include "desenho.h"
-#include "helper_functions.h"
-#include "comandos_basicos.h"
+#include "hardware.h"
+#include "interface.h"
 
 // https://github.com/madhephaestus/WiiChuck
 #include "src/WiiChuck/Nunchuck.h"
-
 
 Nunchuck nunchuck;
 
