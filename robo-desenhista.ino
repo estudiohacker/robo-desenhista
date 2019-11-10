@@ -122,8 +122,11 @@ void loop() {
         teste();
     }
 
-    while (1)    
-      delay(1000);
+    Serial.println("Dormindo...");
+    Serial.end();
+    set_sleep_mode(SLEEP_MODE_PWR_DOWN);
+    sleep_enable();
+    sleep_cpu();
   }  
 }
 
