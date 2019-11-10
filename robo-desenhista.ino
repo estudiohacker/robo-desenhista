@@ -4,6 +4,7 @@
 */
 
 #include <Wire.h>
+#include <avr/sleep.h>
 #include "config.h"
 #include "desenho.h"
 #include "hardware.h"
